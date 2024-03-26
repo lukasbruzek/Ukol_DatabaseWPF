@@ -1,0 +1,30 @@
+﻿<Page x:Class="CreateSubjectPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Create Subject">
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="200"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="New Subject" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25"/>
+        <Label Content="Subject Name:" Grid.Row="1" Grid.Column="0"/>
+        <TextBox x:Name="txtSubjectName" Grid.Row="1" Grid.Column="1" Margin="5"/>
+
+        <Label Content="Subject Class:" Grid.Row="2" Grid.Column="0" Margin="0,5,0,0"/>
+        <TextBox x:Name="txtSubjectClass" Grid.Row="2" Grid.Column="1" Margin="5"/>
+
+        <Button Content="Create Subject" Click="CreateSubject_Click" Grid.Row="3" Grid.Column="0" Margin="5"/>
+
+        <Button Content="Back" Click="Back_Click" Grid.Row="3" Grid.Column="1" Width="80" HorizontalAlignment="Right" Margin="5"/>
+    </Grid>
+</Page>
