@@ -47,7 +47,7 @@ public partial class DisplayStudentsBySubjectPage : Page
             Students = new ObservableCollection<Student>(
             databaseManager.GetStudentsForSubject(selectedSubject.Id)
             );
-
+            countLabel.Content = "Count: " + Students.Count;
             lvStudents.ItemsSource = Students;
         }
         catch (Exception ex)

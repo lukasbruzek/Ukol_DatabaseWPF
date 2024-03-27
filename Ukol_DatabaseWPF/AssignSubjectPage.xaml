@@ -35,8 +35,16 @@
 
         <Label Content="Select Subject:" Grid.Row="1" Grid.Column="0" Margin="0,5,5,5"/>
         <ComboBox x:Name="cmbSubjects" Grid.Row="1" Grid.Column="1" Margin="5" 
-                  ItemsSource="{Binding Subjects}" DisplayMemberPath="Name"/>
-
+                        ItemsSource="{Binding Subjects}">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Name}" Margin="0,0,5,0"/>
+                        <TextBlock Text="{Binding Class}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
         <Button Content="Assign Subject" Click="AssignSubject_Click" Grid.Row="2" Grid.Column="0" 
                 Grid.ColumnSpan="2" HorizontalAlignment="Center" Margin="5"/>
     </Grid>

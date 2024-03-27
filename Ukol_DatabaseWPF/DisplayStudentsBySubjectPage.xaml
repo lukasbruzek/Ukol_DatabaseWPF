@@ -20,11 +20,20 @@
 
         <Label Content="Select Subject:" Grid.Row="0" Grid.Column="0" Margin="0,5,5,5"/>
         <ComboBox x:Name="cmbSubjects" Grid.Row="0" Grid.Column="1" Margin="5" 
-                  ItemsSource="{Binding Subjects}" DisplayMemberPath="Name"/>
-
+                  ItemsSource="{Binding Subjects}">
+            <ComboBox.ItemTemplate>
+            <DataTemplate>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding Name}" Margin="0,0,5,0"/>
+                    <TextBlock Text="{Binding Class}"/>
+                </StackPanel>
+            </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
         <Button Content="Show Students" Click="ShowStudents_Click" Grid.Row="1" Grid.Column="1" 
                 Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="100" Margin="5"/>
-        <Button Content="Remove Student" Click="RemoveStudentFromSubject_Click" Grid.Row="1" Grid.Column="0"  Margin="5"/>
+        <Button Content="Remove Student from subject" Click="RemoveStudentFromSubject_Click" Grid.Row="1" Grid.Column="0"  Margin="5"/>
+        <Label x:Name="countLabel" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right"></Label>
 
         <ListView x:Name="lvStudents" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="5">
             <ListView.View>
@@ -32,6 +41,7 @@
                     <GridViewColumn Header="ID" DisplayMemberBinding="{Binding Id}"/>
                     <GridViewColumn Header="First Name" DisplayMemberBinding="{Binding FirstName}"/>
                     <GridViewColumn Header="Last Name" DisplayMemberBinding="{Binding LastName}"/>
+                    <GridViewColumn Header="Age" DisplayMemberBinding="{Binding Age}"/>
                     <GridViewColumn Header="Class" DisplayMemberBinding="{Binding Class}"/>
                 </GridView>
             </ListView.View>
